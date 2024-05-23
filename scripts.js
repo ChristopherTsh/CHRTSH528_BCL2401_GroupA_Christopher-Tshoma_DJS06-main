@@ -29,3 +29,9 @@ console.log(upperCaseProvince);
 const nameLength = names.map(name => name.length);
 console.log(nameLength);
 
+const sortedProvinces = [provinces].sort(); 
+console.log(sortedProvinces);
+
+console.log(products.map(product => product.product));
+
+console.log(products.filter(product => product.product.length <= 5));
