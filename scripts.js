@@ -47,3 +47,10 @@ const nameProvinceMapping = names.reduce((acc, name, index) => {
   return acc;
 }, {});
 console.log(nameProvinceMapping);
+
+const totalPrice = 
+products .filter(product => product.price!== '')
+products.map(product => ({...product, price: Number(product.price) }))
+products.reduce((acc, product) => acc + product.price, 0);
+
+console.log(totalPrice);
