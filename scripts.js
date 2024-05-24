@@ -42,12 +42,12 @@ console.log(products.map(product => product.product));
 // Use `filter` to remove provinces containing "Cape".
 // Log the count of remaining provinces.
 
-const filteredProvinces = provinces.filter(province =>!province('Cape'));
+const filteredProvinces = provinces.filter(province =>!province.includes('Cape'));
 console.log(`Remaining provinces: ${filteredProvinces.length}`);
 
 // **Finding 'S'**
 // Create a boolean array using `map` and `some` 
-const namesWithS = names.map(name => name('S'));
+const namesWithS = names.map(name => name.includes('S'));
 console.log(namesWithS);
 
 // **Creating Object Mapping**
@@ -89,12 +89,8 @@ const extremes = products
 console.log(`Highest: ${extremes.highest}. Lowest: ${extremes.lowest}.`);
 
 
-const nameProvinceMapping = names.reduce((acc, name, index) => {
-  acc[name] = provinces[index];
-  return acc;
-}, {});
-console.log(nameProvinceMapping);
-
+// **Transforming Products**
+// Use `reduce` to transform the products array into an object mapping product names to their respective prices.
 const transformedProducts = Object.entries(products).reduce(
   (acc, [index, product]) => ({...acc, [index]: {name: product.product, cost: Number(product.price)} }),
   {}
