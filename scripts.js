@@ -54,3 +54,27 @@ products.map(product => ({...product, price: Number(product.price) }))
 products.reduce((acc, product) => acc + product.price, 0);
 
 console.log(totalPrice);
+
+const concatenatedNames = products.reduce((acc,product) => acc + product.product, '');
+console.log(concatenatedNames);
+
+const extremes = products
+ .filter(product => product.price!== '')
+ .map(product => ({price: Number(product.price) }))
+ .reduce(
+   (acc, product) => {
+     acc.highest = Math.max(acc.highest || product.price, product.price);
+     acc.lowest = Math.min(acc.lowest || product.price, product.price);
+     return acc;
+   },
+   {}
+ );
+
+console.log(`Highest: ${extremes.highest}. Lowest: ${extremes.lowest}.`);
+
+const transformedProducts = Object.entries(products).reduce(
+  (acc, [index, product]) => ({...acc, [index]: {name: product.product, cost: Number(product.price)} }),
+  {}
+);
+
+console.log(transformedProducts);
