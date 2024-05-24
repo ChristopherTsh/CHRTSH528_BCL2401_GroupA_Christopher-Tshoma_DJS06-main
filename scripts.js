@@ -29,7 +29,7 @@ console.log(upperCaseProvince);
 const nameLength = names.map(name => name.length);
 console.log(nameLength);
 
-const sortedProvinces = [provinces].sort(); 
+const sortedProvinces = [...provinces].sort(); 
 console.log(sortedProvinces);
 
 console.log(products.map(product => product.product));
