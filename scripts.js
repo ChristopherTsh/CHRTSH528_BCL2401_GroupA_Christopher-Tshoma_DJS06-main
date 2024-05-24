@@ -35,3 +35,15 @@ console.log(sortedProvinces);
 console.log(products.map(product => product.product));
 
 console.log(products.filter(product => product.product.length <= 5));
+
+const filteredProvinces = provinces.filter(province =>!province('Cape'));
+console.log(`Remaining provinces: ${filteredProvinces.length}`);
+
+const namesWithS = names.map(name => name('S'));
+console.log(namesWithS);
+
+const nameProvinceMapping = names.reduce((acc, name, index) => {
+  acc[name] = provinces[index];
+  return acc;
+}, {});
+console.log(nameProvinceMapping);
